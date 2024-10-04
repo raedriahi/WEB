@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Details</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f0f2f5 0%, #d6e0f5 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .author-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .author-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        a{
+            margin-top:10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            display:flex;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            max-width: 120px;
+            overflow: hidden;
+
+        }
+        h5{
+            font-size:1rem;
+            text-transform:uppercase;
+            color:#4CAF50;
+        }
+         a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .author-name {
+            font-size: 1.8rem;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .author-description {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        .author-email,
+        .author-books {
+            font-size: 1rem;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .author-picture {
+            margin-top: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #4CAF50;
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+        }
+
+        .author-picture img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="author-container">
+        <h1>Author Details</h1>
+        <div class="author-picture">
+            <img src="{{ author.picture }}" alt="{{ author.username }}">
+        </div>
+        <p class="author-name">{{ author.username | upper }}</p>
+        <p class="author-description"> Welcome to the author page for {{ author.username }}. Here you'll find more information about the author and their works.</p>
+        <p class="author-email">Email: {{ author.email }}</p>
+        <p class="author-books">Number of Books: {{ author.nb_books }}</p>
+        <a href="{{path('list_authors')}}"><h5> Go back </h5> </a>
+    </div>
+</body>
+</html>
